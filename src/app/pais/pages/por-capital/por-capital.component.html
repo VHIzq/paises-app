@@ -1,0 +1,28 @@
+
+<div class="animate__animated animate__fadeIn">
+  <h2>Por Capital</h2>
+  <hr>
+  <div class="row">
+    <div class="col">
+    <app-pais-input
+    (onEnter)="buscar( $event )"
+    placeholder="Buscar capital..."
+
+    ></app-pais-input><!-- escucha el evento onEnter y llama buscar de por paisComponent -->
+    <!-- dentro del $event viene el string prodcuto del evento -->
+  </div>
+</div>
+<hr>
+</div>
+
+
+<div *ngIf="hayError" class="alert alert-danger">
+  No se encontro nada con el termino {{ termino }}
+</div>
+
+<!-- evalua la presenia de resultados para pintar o no la tabla -->
+<div *ngIf="paises.length > 0" class="row">
+  <div class="col">
+    <app-pais-tabla [paises]="paises"></app-pais-tabla>
+  </div>
+</div>
